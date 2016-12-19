@@ -6,7 +6,10 @@ import (
 	"errors"
 )
 
-var ErrFindingRadianAngleBetweenVectors = errors.New("error finding radians between vectors where one or both vectors is a zero vector.")
+var ErrFindingRadianAngleBetweenVectors = errors.New(
+	`error finding radians between vectors
+	where one or both vectors is a zero vector.`,
+)
 
 // Vec is a vector of float32 with dimensionality of 4.
 type Vec [4]float32
@@ -91,12 +94,12 @@ func (v Vec) Normalize() Vec {
 // Add returns a new vector whereby the two vectors produce a new vector
 // from adding each corresponding component of the two vectors.
 func (a Vec) Add(b Vec) Vec {
-	return Vec{a[0] + b[0], a[1] + b[1], a[2] + b[2], a[3] + b[3] }
+	return Add(a, b)
 }
 
 // Sub is a convenience for a.Add(b.Negate()).
 func (a Vec) Sub(b Vec) Vec {
-	return a.Add(b.Negate())
+	return Sub(a, b)
 }
 
 // Negate returns a new vector that with the same magnitude just pointing
@@ -105,21 +108,21 @@ func (a Vec) Negate() Vec {
 	return a.Scale(-1.0)
 }
 
-// Dot computes the dot-product vetween this vector and the provided vector.
+// Dot computes the dot-product between this vector and the provided vector.
 func (a Vec) Dot(b Vec) float64 {
-	return float64((a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2]) + (a[3] * b[3]))
+	return Dot(a, b)
 }
 
 // RadsBetween returns the angle (in radians) between the two vectors via
 // the equation acos( a.b / (|a|*|b|) ).  If the magnitude of either a or b
 // is 0 then an error is produced.  Otherwise the angle in rads is returned.
 func (a Vec) RadsBetween(b Vec) (float64, error) {
-	am := a.Mag()
-	bm := b.Mag()
-	if am == 0.0 || bm == 0.0 {
-		return 0.0, ErrFindingRadianAngleBetweenVectors
-	}
-	dot := a.Dot(b)
-	return math.Acos(dot / (am * bm)), nil
+	return RadsBetween(a, b)
+}
+
+// Cross produces the cross-product of the two vectors though they were
+// only 3d (minus the w element).
+func (a Vec) Cross(b Vec) Vec {
+	return Cross(a, b)
 }
 

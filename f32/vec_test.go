@@ -7,6 +7,22 @@ import (
 	"math"
 )
 
+func TestVec_Cross(t *testing.T) {
+	a := Vec{1.0, 3.0, 4.0, 0.0}
+	b := Vec{2.5, -5.0, 8.0, 0.0}
+	c := a.Cross(b)
+
+	cx := (a.Y() * b.Z()) - (a.Z() * b.Y())
+	cy := (a.Z() * b.X()) - (a.X() * b.Z())
+	cz := (a.X() * b.Y()) - (a.Y() * b.X())
+	cw := 0.0
+
+	assert.Equal(t, c.X(), float32(cx))
+	assert.Equal(t, c.Y(), float32(cy))
+	assert.Equal(t, c.Z(), float32(cz))
+	assert.Equal(t, c.W(), float32(cw))
+}
+
 func TestVec_RadsBetween(t *testing.T) {
 	theta := math.Pi / 2
 	x := float32(math.Cos(theta))
