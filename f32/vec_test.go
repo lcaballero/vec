@@ -29,6 +29,7 @@ func TestVec_RadsBetween(t *testing.T) {
 	b := Vec{ 0.0, y, 0.0 }
 	rads, err := a.RadsBetween(b)
 	assert.Nil(t, err)
+	t.Log(rads, theta)
 	assert.Equal(t, rads, theta)
 }
 
@@ -39,7 +40,7 @@ func TestVec_Dot(t *testing.T) {
 	xs := a.X() * b.X()
 	ys := a.Y() * b.Y()
 	zs := a.Z() * b.Z()
-	expectedDot := float64(xs + ys + zs)
+	expectedDot := xs + ys + zs
 	assert.Equal(t, c, expectedDot)
 }
 

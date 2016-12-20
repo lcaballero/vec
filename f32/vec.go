@@ -103,7 +103,7 @@ func (a Vec) Negate() Vec {
 }
 
 // Dot computes the dot-product between this vector and the provided vector.
-func (a Vec) Dot(b Vec) float64 {
+func (a Vec) Dot(b Vec) float32 {
 	return Dot(a, b)
 }
 
