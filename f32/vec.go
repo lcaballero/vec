@@ -43,20 +43,13 @@ func (v Vec) Dim() int {
 func (a Vec) Equals(b Vec) bool {
 	return a[0] == b[0] &&
 	a[1] == b[1] &&
-	a[2] == b[2] &&
-	a.Dim() == b.Dim()
-}
-
-// SumOfSqrs returns the sum of squaring each component.
-func (v Vec) SumOfSqrs() float64 {
-	sumOfSquares := (v[0] * v[0]) + (v[1] * v[1]) + (v[2] * v[2])
-	return float64(sumOfSquares)
+	a[2] == b[2]
 }
 
 // Mag returns the square root of the sum of squares which is
 // the magnitude of the vector.
 func (v Vec) Mag() float64 {
-	return math.Sqrt(v.SumOfSqrs())
+	return math.Sqrt(float64(v.Dot(v)))
 }
 
 // Scale multiplies each component by the value s.
@@ -119,4 +112,3 @@ func (a Vec) RadsBetween(b Vec) (float64, error) {
 func (a Vec) Cross(b Vec) Vec {
 	return Cross(a, b)
 }
-
