@@ -30,4 +30,18 @@ func (a Matrix) Mult(b Matrix) Matrix {
 	panic(ErrNotImplementedYet)
 }
 
+func (a Matrix) Rotate(rads float64) Matrix {
+	panic(ErrNotImplementedYet)
+}
 
+func (a Matrix) ReflectX() Matrix {
+	panic(ErrNotImplementedYet)
+}
+
+func (a Matrix) ReflectY() Matrix {
+	panic(ErrNotImplementedYet)
+}
+
+func (a Matrix) OrthoProjection() Matrix {
+	panic(ErrNotImplementedYet)
+}

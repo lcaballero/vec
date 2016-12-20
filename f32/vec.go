@@ -12,10 +12,10 @@ var ErrFindingRadianAngleBetweenVectors = errors.New(
 )
 
 // Vec is a vector of float32 with dimensionality of 4.
-type Vec [4]float32
+type Vec [3]float32
 
 // Zero is a Vec where x, y, z, w are all 0.0.
-var Zero = Vec{0.0, 0.0, 0.0, 0.0}
+var Zero = Vec{0.0, 0.0, 0.0}
 
 // X provides the x component of the vector.
 func (v Vec) X() float32 {
@@ -32,11 +32,6 @@ func (v Vec) Z() float32 {
 	return v[2]
 }
 
-// W provides the w component of the vector.
-func (v Vec) W() float32 {
-	return v[3]
-}
-
 // Len provides the dimensionality of the Vector which should always be 4.
 func (v Vec) Dim() int {
 	return len(v)
@@ -49,13 +44,12 @@ func (a Vec) Equals(b Vec) bool {
 	return a[0] == b[0] &&
 	a[1] == b[1] &&
 	a[2] == b[2] &&
-	a[3] == b[3] &&
 	a.Dim() == b.Dim()
 }
 
 // SumOfSqrs returns the sum of squaring each component.
 func (v Vec) SumOfSqrs() float64 {
-	sumOfSquares := (v[0] * v[0]) + (v[1] * v[1]) + (v[2] * v[2]) + (v[3] * v[3])
+	sumOfSquares := (v[0] * v[0]) + (v[1] * v[1]) + (v[2] * v[2])
 	return float64(sumOfSquares)
 }
 
@@ -67,13 +61,13 @@ func (v Vec) Mag() float64 {
 
 // Scale multiplies each component by the value s.
 func (v Vec) Scale(s float32) Vec {
-	v[0] *= s; v[1] *= s; v[2] *= s; v[3] *= s
+	v[0] *= s; v[1] *= s; v[2] *= s;
 	return v
 }
 
 // String produces a string in the form: <x,y,z,w>.
 func (v Vec) String() string {
-	return fmt.Sprintf("<%f, %f, %f, %f>", v.X(), v.Y(), v.Z(), v.W())
+	return fmt.Sprintf("<%f, %f, %f>", v.X(), v.Y(), v.Z())
 }
 
 // Normalize produces a unit vector from v.  However, if the vector is the
