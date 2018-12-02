@@ -31,4 +31,3 @@ func Mult(a, b Matrix) Matrix {
 func Rotate(a Matrix, rads float64) Matrix {
 	panic(ErrNotImplementedYet)
 }
-

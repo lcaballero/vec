@@ -13,4 +13,3 @@ func EqualMatrices(a, b Matrix) bool {
 	}
 	return true
 }
-

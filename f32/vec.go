@@ -1,9 +1,9 @@
 package f32
 
 import (
-	"math"
-	"fmt"
 	"errors"
+	"fmt"
+	"math"
 )
 
 var ErrFindingRadianAngleBetweenVectors = errors.New(
@@ -42,8 +42,8 @@ func (v Vec) Dim() int {
 // fuzz).  Otherwise Equals returns false
 func (a Vec) Equals(b Vec) bool {
 	return a[0] == b[0] &&
-	a[1] == b[1] &&
-	a[2] == b[2]
+		a[1] == b[1] &&
+		a[2] == b[2]
 }
 
 // Mag returns the square root of the sum of squares which is
@@ -54,7 +54,9 @@ func (v Vec) Mag() float64 {
 
 // Scale multiplies each component by the value s.
 func (v Vec) Scale(s float32) Vec {
-	v[0] *= s; v[1] *= s; v[2] *= s;
+	v[0] *= s
+	v[1] *= s
+	v[2] *= s
 	return v
 }
 
@@ -81,7 +83,11 @@ func (v Vec) Normalize() Vec {
 // Add returns a new vector whereby the two vectors produce a new vector
 // from adding each corresponding component of the two vectors.
 func (a Vec) Add(b Vec) Vec {
-	return Add(a, b)
+	return Vec{
+		a[0] + b[0],
+		a[1] + b[1],
+		a[2] + b[2],
+	}
 }
 
 // Sub is a convenience for a.Add(b.Negate()).

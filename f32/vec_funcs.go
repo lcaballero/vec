@@ -24,7 +24,7 @@ func RadsBetween(a, b Vec) (float64, error) {
 // Add returns a new vector whereby the two vectors produce a new vector
 // from adding each corresponding component of the two vectors.
 func Add(a, b Vec) Vec {
-	return Vec{ a[0] + b[0], a[1] + b[1], a[2] + b[2] }
+	return Vec{a[0] + b[0], a[1] + b[1], a[2] + b[2]}
 }
 
 // Sub is a convenience for a.Add(b.Negate()).
@@ -46,8 +46,8 @@ func Cross(a, b Vec) Vec {
 // angle provide as radians.
 func RotateMX(rads float64) Matrix {
 	return Matrix{
-		1.0,  0.0,          0.0,
-		0.0,  cosf32(rads), sinf32(rads),
+		1.0, 0.0, 0.0,
+		0.0, cosf32(rads), sinf32(rads),
 		0.0, -sinf32(rads), cosf32(rads),
 	}
 }
@@ -57,7 +57,7 @@ func RotateMX(rads float64) Matrix {
 func RotateMY(rads float64) Matrix {
 	return Matrix{
 		cosf32(rads), 0.0, -sinf32(rads),
-		0.0,          1.0, 0.0,
+		0.0, 1.0, 0.0,
 		sinf32(rads), 0.0, cosf32(rads),
 	}
 }
@@ -66,9 +66,9 @@ func RotateMY(rads float64) Matrix {
 // angle provide as radians.
 func RotateMZ(rads float64) Matrix {
 	return Matrix{
-		 cosf32(rads), sinf32(rads), 0.0,
+		cosf32(rads), sinf32(rads), 0.0,
 		-sinf32(rads), cosf32(rads), 0.0,
-		 0.0,          0.0,          1.0,
+		0.0, 0.0, 1.0,
 	}
 }
 

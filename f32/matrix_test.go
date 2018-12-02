@@ -1,8 +1,8 @@
 package f32
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func AssertEqualMatrices(t *testing.T, a, b Matrix) {
@@ -11,9 +11,9 @@ func AssertEqualMatrices(t *testing.T, a, b Matrix) {
 
 func TestMatrix_By_Ident_Equals_Original(t *testing.T) {
 	a := Matrix{
-		1.0, -5.0,  3.0,
-		0.0, -2.0,  6.0,
-		7.0,  2.0, -4.0,
+		1.0, -5.0, 3.0,
+		0.0, -2.0, 6.0,
+		7.0, 2.0, -4.0,
 	}
 	b := Ident()
 	AssertEqualMatrices(t, a, a.Mult(b))
@@ -22,14 +22,14 @@ func TestMatrix_By_Ident_Equals_Original(t *testing.T) {
 
 func TestMatrix_Mult_Simple(t *testing.T) {
 	a := Matrix{
-		 1.0, -5.0,  3.0,
-		 0.0, -2.0,  6.0,
-		 7.0,  2.0, -4.0,
+		1.0, -5.0, 3.0,
+		0.0, -2.0, 6.0,
+		7.0, 2.0, -4.0,
 	}
 	b := Matrix{
-		-8.0, 6.0,  1.0,
-		 7.0, 0.0, -3.0,
-		 2.0, 4.0,  5.0,
+		-8.0, 6.0, 1.0,
+		7.0, 0.0, -3.0,
+		2.0, 4.0, 5.0,
 	}
 	c := Mult(a, b)
 

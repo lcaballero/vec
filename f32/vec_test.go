@@ -1,8 +1,8 @@
 package f32
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 
 	"math"
 )
@@ -25,8 +25,8 @@ func TestVec_RadsBetween(t *testing.T) {
 	theta := math.Pi / 2
 	x := float32(math.Cos(theta))
 	y := float32(math.Sin(theta))
-	a := Vec{ x, 0.0, 0.0 }
-	b := Vec{ 0.0, y, 0.0 }
+	a := Vec{x, 0.0, 0.0}
+	b := Vec{0.0, y, 0.0}
 	rads, err := a.RadsBetween(b)
 	assert.Nil(t, err)
 	t.Log(rads, theta)
@@ -66,9 +66,9 @@ func TestVec_Add(t *testing.T) {
 	a := Vec{1.0, 11.0, 222.0}
 	b := Vec{-21.0, -42.0, 99.72}
 	c := a.Add(b)
-	assert.Equal(t, a.X() + b.X(), c.X())
-	assert.Equal(t, a.Y() + b.Y(), c.Y())
-	assert.Equal(t, a.Z() + b.Z(), c.Z())
+	assert.Equal(t, a.X()+b.X(), c.X())
+	assert.Equal(t, a.Y()+b.Y(), c.Y())
+	assert.Equal(t, a.Z()+b.Z(), c.Z())
 }
 
 func TestVec_Normalized_Vec_Has_Magnitude_of_One(t *testing.T) {
@@ -91,7 +91,7 @@ func TestVec_Scaling_Equals_Vector_With_Opposite_Direction(t *testing.T) {
 
 func TestVec_SumOfSqrs_For_1_2_3_4_Vec_Is_Correct(t *testing.T) {
 	a := Vec{1.0, 2.0, 3.0}
-	assert.Equal(t, float32(1.0 + 4.0 + 9.0), a.Dot(a))
+	assert.Equal(t, float32(1.0+4.0+9.0), a.Dot(a))
 }
 
 func Test_Magnitude_Of_1_1_1_1_Vec_Is_2(t *testing.T) {

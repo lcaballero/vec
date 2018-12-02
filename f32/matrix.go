@@ -1,4 +1,5 @@
 package f32
+
 import "errors"
 
 var ErrNotImplementedYet = errors.New("not implemented")
@@ -35,8 +36,7 @@ func (m Matrix) Transpose() Matrix {
 
 func (m Matrix) Scalar(a float32) Matrix {
 	return Matrix{
-		a*m[e11], a*m[e12], a*m[e13],
-
+		a * m[e11], a * m[e12], a * m[e13],
 	}
 }
 
